@@ -6,7 +6,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
+      
+    <title>RescU</title>
+
+    <div  class = "navbar">
+      <nav class="navbar navbar-default">
+         <div class="navbar-header">
+           <%= link_to 'Logo', root_path, :class=> "navbar-brand" %>
+         </div>
+         <ul class="nav navbar-nav pull-right">
+            <li><a href="#">Sign In</a></li>
+            <li class= "active"><a href="#">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+
+</head>
 
   <body>
     <%= yield %>

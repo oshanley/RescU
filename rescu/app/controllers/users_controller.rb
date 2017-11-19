@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   include SessionsHelper
-
+ 
   def show
     @user = User.find(params[:id])
-  end
+    @reports = @user.reports
+  end  
 
   def new
     @user = User.new
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params) 
-    if @user.save
+    if @user.save!
       log_in(@user)
       redirect_to '/'
     else 

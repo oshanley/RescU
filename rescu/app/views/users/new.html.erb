@@ -33,7 +33,7 @@
      <div class="form-group">
        <div class="col-md-8">
          <%= f.label :org_user, "I am a: ", class: "col-md-4 control-label" %>
-         <%= select_tag(:org_user, options_for_select([['Concerned Citizen', false], ['Animal Rescuer', true]]), :selected => true) %>
+         <%= f.select :org_user, [['Concerned Citizen', false], ['Animal Rescuer', true]], :prompt => 'Select One' %>
        </div>
      </div>
   </div>

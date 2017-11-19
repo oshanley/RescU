@@ -17,12 +17,13 @@
       <ul class="nav navbar-nav">
         <% if current_user.present? %>
           <li class="nav-item"> <%= link_to "Dashboard", '/dashboard'%> </li>
-          <% if current_user.org_user %>
-            <li class="nav-item"> <%= link_to "Manage Reports", '/'%> </li>> 
+          <% if current_user.org_user? %>
+            <li class="nav-item"> <%= link_to "Manage Reports", '/'%> </li>
             <li class="nav-item"> <%= link_to "Map", '/'%> </li>
           <% else %>
-            <li class="nav-item"> <%= link_to "My Reports", '/'%> </li>
+            <li class="nav-item"> <%= link_to "My Reports", '/reports'%> </li>
           <% end %>
+          <li class="navbar-btn"> <%= button_to "New Report", new_report_path, method: :get %> </li>
         <% else %>
           <li class="nav-item"> <%= link_to "About", '/' %> </li>
         <% end %>  

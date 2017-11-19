@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111021320) do
+ActiveRecord::Schema.define(version: 20171112220930) do
+
+  create_table "reports", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "address"
+    t.string   "severity"
+    t.boolean  "anonymous"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "town"
+    t.string   "state"
+    t.string   "zipcode"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

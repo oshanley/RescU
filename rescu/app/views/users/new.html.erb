@@ -7,14 +7,14 @@
          <%= f.text_field :first_name, :placeholder => "First Name", class: "form-control" %>
        </div>
      </div>
-     </br>
+     <br>
      <div class="form-group">
        <div class="col-md-8">
          <%= f.label :last__name, "Last Name", class: "col-md-4 control-label" %>
          <%= f.text_field :last_name, :placeholder => "Last Name", class: "form-control" %>
        </div>
      </div>
-     </br>
+     <br>
      <div class="form-group">
        <div class="col-md-8">
          <%= f.label :email, "Email", class: "col-md-4 control-label" %>
@@ -26,17 +26,19 @@
        <div class="col-md-8">
          <%= f.label :password, "Password", class: "col-md-4 control-label" %>
          <%= f.password_field :password, :placeholder => "Password", class: "form-control" %>
-         </br>
+         <br>
          <%= f.password_field :password_confirmation, :placeholder => "Confirm password", class: "form-control" %>
        </div>
      </div>
      <div class="form-group">
        <div class="col-md-8">
          <%= f.label :org_user, "I am a: ", class: "col-md-4 control-label" %>
-         <%= f.select :org_user, [['Concerned Citizen', false], ['Animal Rescuer', true]], :prompt => 'Select One' %>
+         <%= f.select :org_user, options_for_select([['Concerned Citizen', false], ['Animal Rescuer', true]]), :selected => true %>
        </div>
      </div>
   </div>
-  <%= button_to('Submit', new_user_path, :class => "btn btn-primary") %>
+  <div class="col-md-8">
+    <%= button_to('Submit', new_user_path, :class => "btn btn-primary") %>
+  </div> 
   </div>
 <% end %>

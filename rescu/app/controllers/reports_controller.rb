@@ -12,10 +12,28 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.build(report_params) 
     if @report.save!
-      redirect_to '/'
+      flash[:success] = "Report created"
+      redirect_to reports_path
     else 
       render 'new' 
     end 
+  end
+
+  def edit
+    @report = Report.find(params[:id])
+  end
+
+  def update
+    @report = Report.find(params[:id])
+    @report.update(report_params)
+    if @report.save!
+      flash[:success] = "Report updated"
+      redirect_to reports_path
+    else
+     flash[:error] = "There was an error updating your report"
+     redirect_to edit_report_path 
+    end
+    
   end
 
   def destroy

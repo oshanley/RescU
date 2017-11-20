@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create' 
   delete '/logout' => 'sessions#destroy', as: :logout
 
-  resources :users, except: :new do
-    resources :reports 
+  resource :users, except: :new do
+    collection do
+      resources :reports 
+    end
   end
   
   resource :geocoder

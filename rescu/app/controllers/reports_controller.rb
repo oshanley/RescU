@@ -19,11 +19,10 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    #@report = current_user.reports.find(params[:id])
     @report = Report.find(params[:id])
     @report.destroy
-
-    redirect_to user_reports_path, notice: "Delete success"
+    flash[:success] = "Report deleted"
+    redirect_to reports_path 
   end
 
 private

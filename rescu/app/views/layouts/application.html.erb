@@ -21,9 +21,9 @@
             <li class="nav-item"> <%= link_to "Manage Reports", '/'%> </li>
             <li class="nav-item"> <%= link_to "Map", '/'%> </li>
           <% else %>
-            <li class="nav-item"> <%= link_to "My Reports", user_reports_path(current_user) %> </li>
+            <li class="nav-item"> <%= link_to "My Reports", reports_path %> </li>
           <% end %>
-          <li class="navbar-item"> <%= link_to "New Report", new_user_report_path(current_user), class: 'btn' %> </li>
+          <li class="navbar-item"> <%= link_to "New Report", new_report_path, class: 'btn' %> </li>
         <% else %>
           <li class="nav-item"> <%= link_to "About", '/' %> </li>
         <% end %>  
@@ -39,9 +39,11 @@
         </span> 
       </ul>
     </header>
-    <% flash.each do |name, msg| -%>
-     <%= content_tag :div, msg, class: name %>
-    <% end -%>
-    <%= yield %>
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+            <%= value %>
+      </div>
+  <% end %>  
+  <%= yield %>
   </body>
 </html>

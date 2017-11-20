@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 #  attr_accessible :
   has_secure_password
-  has_many :reports
+  has_many :reports, dependent: :destroy
   before_save { self.email = email.downcase }
   validates :password, presence: true, length: { minimum: 6 }, confirmation: true
   validates :first_name,  presence: true, length: { maximum: 20 }

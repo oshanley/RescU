@@ -8,13 +8,14 @@ class SessionsController < ApplicationController
     log_in @user
     redirect_to '/'
   else
-    redirect_to new_session_url, :flash => { :error => "Invalid email/password combination" }
+    redirect_to login_url, :flash => { :error => "Invalid email/password combination" }
   end 
     
  end
 
   def destroy 
     log_out
+    flash[:success] = "You have been logged out"
     redirect_to root_url 
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112220930) do
+ActiveRecord::Schema.define(version: 20171120012059) do
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"
@@ -22,10 +22,11 @@ ActiveRecord::Schema.define(version: 20171112220930) do
     t.float    "longitude"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "town"
+    t.string   "city"
     t.string   "state"
     t.string   "zipcode"
     t.integer  "user_id"
+    t.string   "country"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20171112220930) do
     t.boolean  "org_user"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "full_address"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

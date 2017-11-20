@@ -13,17 +13,17 @@
 
   <body>
     <header class="navbar navbar-default">
-      <%= link_to 'Logo', root_path, :class=> "navbar-brand" %>
+      <%= link_to 'RescU', root_path, :class=> "navbar-brand" %>
       <ul class="nav navbar-nav">
         <% if current_user.present? %>
           <li class="nav-item"> <%= link_to "Dashboard", '/dashboard'%> </li>
-          <% if current_user.org_user? %>
+          <% if current_user.org_user %>
             <li class="nav-item"> <%= link_to "Manage Reports", '/'%> </li>
             <li class="nav-item"> <%= link_to "Map", '/'%> </li>
           <% else %>
-            <li class="nav-item"> <%= link_to "My Reports", '/reports'%> </li>
+            <li class="nav-item"> <%= link_to "My Reports", reports_path %> </li>
           <% end %>
-          <li class="navbar-btn"> <%= button_to "New Report", new_report_path, method: :get %> </li>
+          <li class="navbar-item"> <%= link_to "New Report", new_report_path, class: 'btn' %> </li>
         <% else %>
           <li class="nav-item"> <%= link_to "About", '/' %> </li>
         <% end %>  
@@ -39,6 +39,11 @@
         </span> 
       </ul>
     </header>
-    <%= yield %>
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+            <%= value %>
+      </div>
+  <% end %>  
+  <%= yield %>
   </body>
 </html>

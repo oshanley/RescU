@@ -1,5 +1,11 @@
 <%= form_for @user, :html=> {:class => "form"} do |f| %>
-  <div class="tab">
+   <% if @user.errors.any? %>
+     <%= flash[:error] = "Please fix the following errors" %><br>
+     <% @user.errors.full_messages.each do |message| %>
+       <%= message %><br>
+     <% end %>
+   <% end %>
+   <div class="tab">
      <div class="form-group">
        <div class="col-md-8">
          <h3> Create an account</h3>

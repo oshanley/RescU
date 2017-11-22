@@ -5,6 +5,7 @@
       <th> Title </th>
       <th> Description </th>
       <th> Severity </th>
+      <th> Status </th>
       <th> Created </th>
       <th> Last Updated </th> 
       <th>  </th> 
@@ -15,8 +16,9 @@
         <td><%= report.title %></td>
         <td><%=h truncate(report.description, :length => 100) %></td> 
         <td><%= report.severity %>
-        <td><%= report.created_at %>
-        <td><%= report.updated_at %>
+        <td><%= report.status %></td>
+        <td><%= report.created_at.strftime("%e %b %y %I:%M %p") %>
+        <td><%= report.updated_at.strftime("%e %b %y %I:%M %p")%>
         <td><%= link_to 'Edit', edit_report_url(report)%></td>   
         <td><%= link_to 'Delete', report_path(report), data: { confirm: "Are you sure you want to delete this report?" }, :method => :delete%></td>   
       </tr>

@@ -1,4 +1,4 @@
-<h3 class="text-center">Edit Report</h3>
+<h3 class="text-center">AHHH Edit Report</h3>
 <div class="col-md-2"></div>
 
 <div class="col-md-8">
@@ -43,7 +43,10 @@
     <div class="form-group">
       <%= f.label :severity, "Severity", class: "col-md-4 control-label" %>
       <%= f.select :severity, ['Low', 'Moderate', 'Extreme'], :selected =>  @report.severity %>
+    </div>
+    <div class="form-group">
       <%= button_to('Submit', reports_path(@report), :class => "btn btn-primary") %>
+      <%= button_to('Cancel', reports_path, :method => "get", :class => "btn btn-basic") %>
     </div>
   </div>
 <% end %>

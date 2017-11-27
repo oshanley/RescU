@@ -11,7 +11,14 @@ textarea{
   width: 100% !important; 
   height: 100px;
 }
-
-.btn-primary {
-  float: right;
+ 
+.form-group {
+  .btn { 
+    display: inline-block;
+    float: right;
+    margin-right: 2px;
+   } 
 }
+
+
+

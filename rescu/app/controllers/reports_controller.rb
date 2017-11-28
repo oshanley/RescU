@@ -2,7 +2,13 @@ class ReportsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
  
   def index
-    @reports = current_user.reports.all
+    if params[:location].present?
+      @reports = Report.near(params[:location], params[:distance], order: :distance)
+    elsif params[:severity].present?
+      @reports = Report.find(:all, order: :severity)
+    else
+      @reports = current_user.reports.all
+    end
   end 
  
   def new 

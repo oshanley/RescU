@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/login'  => 'sessions#new', as: :login
   post '/login' => 'sessions#create' 
   delete '/logout' => 'sessions#destroy', as: :logout
+  get '/map' => 'searches#show', as: :map
 
   resource :users, except: :new do
     collection do
@@ -15,4 +16,6 @@ Rails.application.routes.draw do
   end
   
   resource :geocoder
+  resource :search, except: :index
+
 end

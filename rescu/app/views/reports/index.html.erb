@@ -1,5 +1,31 @@
 <h1> Reports </h1>
-
+<% if current_user.org_user %>
+ 
+  <table class="table table-hover">
+    <tr>
+      <th> Title </th>
+      <th> Description </th>
+      <th> Severity </th>
+      <th> Status </th>
+      <th> Created </th>
+      <th> Last Updated </th>
+      <th>  </th>
+      <th>  </th>
+    </tr>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.title %></td>
+        <td><%=h truncate(report.description, :length => 100) %></td>
+        <td><%= report.severity %>
+        <td><%= report.status %></td>
+        <td><%= report.created_at.strftime("%e %b %y %I:%M %p") %>
+        <td><%= report.updated_at.strftime("%e %b %y %I:%M %p")%>
+        <td><%= link_to 'Edit', edit_report_url(report)%></td>
+        <td><%= link_to 'Delete', report_path(report), data: { confirm: "Are you sure you want to delete this report?" }, :method => :delete%></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
   <table class="table table-hover">
     <tr> 
       <th> Title </th>
@@ -24,3 +50,4 @@
       </tr>
     <% end %>
   </table>
+<% end %>

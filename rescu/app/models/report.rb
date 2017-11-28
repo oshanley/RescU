@@ -15,4 +15,5 @@ class Report < ApplicationRecord
   def full_address
    [address, city, state, country, zipcode].compact.join(', ')
   end
+  
 end

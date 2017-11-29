@@ -2,7 +2,7 @@
 <div class="col-md-2"></div>
 
 <div class="col-md-8">
-  <%= form_for  @report, :html=> {:class => "form"} do |f| %>
+  <%= form_for @report, :html=> {:class => "form"} do |f| %>
   
     <% if @report.errors.any? %>
       <% @report.errors.full_messages.each do |message| %>

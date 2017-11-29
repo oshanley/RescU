@@ -20,7 +20,7 @@
         <td><%= report.status %></td>
         <td><%= report.created_at.strftime("%e %b %y %I:%M %p") %>
         <td><%= report.updated_at.strftime("%e %b %y %I:%M %p")%>
-        <td><%= link_to 'Edit', edit_report_url(report)%></td>
+        <td><%= link_to 'Edit', edit_report_path(report) %></td>
         <td><%= link_to 'Delete', report_path(report), data: { confirm: "Are you sure you want to delete this report?" }, :method => :delete%></td>
       </tr>
     <% end %>
@@ -45,7 +45,7 @@
         <td><%= report.status %></td>
         <td><%= report.created_at.strftime("%e %b %y %I:%M %p") %>
         <td><%= report.updated_at.strftime("%e %b %y %I:%M %p")%>
-        <td><%= link_to 'Edit', edit_report_url(report)%></td>   
+        <td><%= link_to 'Edit', edit_report_path(report), :method => :get %></td>   
         <td><%= link_to 'Delete', report_path(report), data: { confirm: "Are you sure you want to delete this report?" }, :method => :delete%></td>   
       </tr>
     <% end %>

@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :edit, :search, :destroy]
  
   def index
     if params[:location].present?

@@ -1,5 +1,5 @@
-jQuery(function($) {
-  $("tr[data-link]").click(function() {
+jQuery(document).ready(function($) {
+  $(".clickable-row").click(function() {
     window.location = $(this).data("link")
   });
 });

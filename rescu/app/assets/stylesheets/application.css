@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+small.navbar-text {
+  margin-top: -10px !important;
+  font-size: xx-small !important;
+}
+
+tr.clickable_row {
+  cursor: pointer;
+}

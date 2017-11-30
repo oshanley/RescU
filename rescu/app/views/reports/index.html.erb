@@ -10,8 +10,9 @@ Description: Reports view for both users. Servers as "Manage Reports" page for r
 =end
 
 <h1> Reports </h1>
-<% if current_user.org_user %>
-   <!-- Tabs -->
+<!-- Rescue View -->
+<% if current_user.org_user %>   
+  <!-- Tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#investigating">Investigating</a></li>
     <li><a data-toggle="tab" href="#needs-review">Needs Review</a></li>

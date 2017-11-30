@@ -1,3 +1,14 @@
+=begin
+Name: Olivia Shanley
+Course: CSC 415
+Semester: Fall 2017
+Instructor: Dr. Pulimood 
+Project name: RescU 
+Description: An platform to help facilitate animal rescues
+Filename: sessions_helper.rb
+Description: Helpers for the Sessions controller
+=end
+
 module SessionsHelper
 
   # Logs in the given user

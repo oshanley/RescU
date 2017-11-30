@@ -1,3 +1,14 @@
+=begin
+Name: Olivia Shanley
+Course: CSC 415
+Semester: Fall 2017
+Instructor: Dr. Pulimood 
+Project name: RescU 
+Description: An platform to help facilitate animal rescues
+Filename: sessions_controller.rb
+Description: Sessions Controller. Facilitates logging in and out for a user.
+=end
+
 class SessionsController < ApplicationController
   before_action :save_last_login, only: [:destroy]
   

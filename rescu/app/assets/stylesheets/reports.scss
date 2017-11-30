@@ -2,6 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h1, h2 { 
+  margin-bottom: 10px;
+}
+
+.dashboard-text {
+ h1, h3 { 
+    display: inline;
+  }
+
+  span { 
+    font-size: x-small; 
+  }
+}
+
+.dashboard-alert {
+    text-align: center;
+    padding-top: 30px;
+}
+
 table {
   width: 100%;
   height: 30px;  

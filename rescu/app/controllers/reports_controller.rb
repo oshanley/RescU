@@ -39,7 +39,11 @@ class ReportsController < ApplicationController
   end
 
   def dashboard
-
+    if current_user.org_user
+      @reports = Report.where("created_at >= ?", current_user.last_login)
+    else
+      @reports = Report.where("updated_at >= ?", current_user.last_login)
+    end
   end
  
   def new 

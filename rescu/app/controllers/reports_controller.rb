@@ -1,3 +1,14 @@
+=begin
+Name: Olivia Shanley
+Course: CSC 415
+Semester: Fall 2017
+Instructor: Dr. Pulimood 
+Project name: RescU 
+Description: An platform to help facilitate animal rescues
+Filename: reports_controller.rb
+Description: Reports controller. Handles all the logic behind creating, updating, destroying, and searching/sorting.
+=end
+
 class ReportsController < ApplicationController
   before_action :logged_in_user, only: [:create, :update, :destroy] 
 

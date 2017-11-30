@@ -1,53 +1,44 @@
 <h1> Reports </h1>
 <% if current_user.org_user %>
+   <!-- Tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#investigating">Investigating</a></li>
+    <li><a data-toggle="tab" href="#needs-review">Needs Review</a></li>
+    <li><a data-toggle="tab" href="#new">New</a></li>
+    <li><a data-toggle="tab" href="#closed">Closed</a></li>
+  </ul>
  
-  <table class="table table-hover">
-    <tr>
-      <th> Title </th>
-      <th> Description </th>
-      <th> Severity </th>
-      <th> Status </th>
-      <th> Created </th>
-      <th> Last Updated </th>
-      <th>  </th>
-      <th>  </th>
-    </tr>
-    <% @reports.each do |report| %>
-      <tr>
-        <td><%= report.title %></td>
-        <td><%=h truncate(report.description, :length => 100) %></td>
-        <td><%= report.severity %>
-        <td><%= report.status %></td>
-        <td><%= report.created_at.strftime("%e %b %y %I:%M %p") %>
-        <td><%= report.updated_at.strftime("%e %b %y %I:%M %p")%>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Delete', report_path(report), data: { confirm: "Are you sure you want to delete this report?" }, :method => :delete%></td>
-      </tr>
-    <% end %>
-  </table>
+<!-- Tab content -->
+  <div class="tab-content">
+
+    <div id="investigating" class="tab-pane fade in active">   
+      <% @reports = Report.all %>
+      <% @reports = @reports.where("status LIKE ?", 'Under Investigation') %>
+      <%= render "table" %>
+    </div>
+  
+    <div id="needs-review" class="tab-pane fade">
+      <% @reports = Report.all %>
+      <% @reports =  @reports.where("status LIKE ?", 'Pending Review') %>
+      <%= render "table" %>
+    </div>
+  
+
+     <div id="new" class="tab-pane fade">
+      <% @reports = Report.all %>
+      <% @reports =  @reports.where("created_at >= ?", current_user.last_login) %>
+      <%= render "table" %>
+    </div>
+
+    <div id="closed" class="tab-pane fade">
+      <% @reports = Report.all %>
+      <% @reports =  @reports.where("status LIKE ?", 'Closed') %>
+      <%= render "table" %>
+    </div>
+
+  </div>
+
+<!-- Citizen View -->
 <% else %>
-  <table class="table table-hover">
-    <tr> 
-      <th> Title </th>
-      <th> Description </th>
-      <th> Severity </th>
-      <th> Status </th>
-      <th> Created </th>
-      <th> Last Updated </th> 
-      <th>  </th> 
-      <th>  </th> 
-    </tr>
-    <% @reports.each do |report| %>
-      <tr>
-        <td><%= report.title %></td>
-        <td><%=h truncate(report.description, :length => 100) %></td> 
-        <td><%= report.severity %>
-        <td><%= report.status %></td>
-        <td><%= report.created_at.strftime("%e %b %y %I:%M %p") %>
-        <td><%= report.updated_at.strftime("%e %b %y %I:%M %p")%>
-        <td><%= link_to 'Edit', edit_report_path(report), :method => :get %></td>   
-        <td><%= link_to 'Delete', report_path(report), data: { confirm: "Are you sure you want to delete this report?" }, :method => :delete%></td>   
-      </tr>
-    <% end %>
-  </table>
+  <%= render "table" %>
 <% end %>

@@ -48,7 +48,9 @@
 <% else %>
   <div class="dashboard-text">
     <h1> New Activity </h3> 
-    <span>Last login: <%= current_user.last_login.strftime("%e %b %y %I:%M %p") %></span>
+    <% if current_user.last_login.present? %>
+      <span>Last login: <%= current_user.last_login.strftime("%e %b %y %I:%M %p") %></span>
+    <% end %>
   </div>
   <table class="table table-hover">
     <thead>
@@ -67,8 +69,7 @@
   </table>
   <div class="dashboard-alert">
     <h4> No Recent Activity</h4>
-    <p> There is no recent activity since your last login </p>
-    <%= button_to "My Reports", reports_path, :method => :get %>
+    <p> There are no recent updates </p>
   </div>
   <% else %>
     <tbody>
@@ -83,8 +84,9 @@
           <td><%= link_to 'Edit', edit_report_path(report), :method => :get %></td>   
           <td><%= link_to 'Delete', report_path(report), data: { confirm: "Are you sure you want to delete this report?" }, :method => :delete%></td>   
         </tr>
-      <% end %>
+      <% end %> 
     </tbody>
   <% end %>  
   </table>
+  <%= button_to "My Reports", reports_path, :method => :get %>
 <% end %>

@@ -1,0 +1,39 @@
+<% if @reports.size == 0 %>
+  <div class="no-reports-message">
+    <p> There are no reports at this time.  </p>
+    <% if !current_user.org_user %>
+      <%= button_to "New Report", new_report_path, :method => :get %>
+    <% end %>
+    </div>
+<% else %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th> Title </th>
+        <th> Description </th>
+        <th> Severity </th>
+        <th> Status </th>
+        <th> Created </th>
+        <th> Last Updated </th>
+        <th>  </th>
+        <th>  </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reports.each do |report| %>
+        <tr class="clickable-row" data-link="<%= edit_report_path(report) %>">
+          <td><%= report.title %></td>
+          <td><%=h truncate(report.description, :length => 100) %></td>
+          <td><%= report.severity %>
+          <td><%= report.status %></td>
+          <td><%= report.created_at.strftime("%e %b %y %I:%M %p") %>
+          <td><%= report.updated_at.strftime("%e %b %y %I:%M %p")%>
+          <td><%= link_to 'Edit', edit_report_path(report), :method => :get %></td>
+          <% if !current_user.org_user %>
+           <td><%= link_to 'Delete', report_path(report), data: { confirm: "Are you sure you want to delete this report?" }, :method => :delete%></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %> 

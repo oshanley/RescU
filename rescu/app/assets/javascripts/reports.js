@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
   $(".clickable-row").click(function() {
-    window.location = $(this).data("link")
+    window.location = $(this).data('link')
   });
 });
 

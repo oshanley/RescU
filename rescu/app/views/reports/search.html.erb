@@ -1,11 +1,11 @@
-<h1> Map </h1>
+<h1> Search </h1>
 
-<%= form_tag map_path, method: :get do %>
+<%= form_tag search_path, method: :get do %>
   <%= label :location, "Search reports near : " %>
   <%= text_field_tag :location, params[:location], :placeholder=>'Address' %>
 
   <%= label :distance, "Distance : " %>
-  <%= select_tag :distance, options_for_select([["10 miles", 10], ["20 miles", 20], ["30 miles", 30], ["40 miles", 40], ["50 miles", 50], ["50+ miles", nil]], @prev_distance), :prompt=>"All" %> 
+  <%= select_tag :distance, options_for_select([["10 miles", 10], ["20 miles", 20], ["30 miles", 30], ["40 miles", 40], ["50 miles", 50]], @prev_distance), :prompt=>"All" %> 
 
   <%= label :severity, "Severity: " %>
   <%= select_tag :severity, options_for_select([['Low'], ['Moderate'], ['Extreme']], @prev_severity) , :prompt=>'All'%>

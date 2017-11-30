@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/login'  => 'sessions#new', as: :login
   post '/login' => 'sessions#create' 
   delete '/logout' => 'sessions#destroy', as: :logout
-  get '/map' => 'reports#search', as: :map
+  get '/search' => 'reports#search', as: :search
   get '/dashboard' => 'reports#dashboard', as: :dashboard
 
 

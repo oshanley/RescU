@@ -1,3 +1,28 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.take-action {  
+  text-align: center; 
+}
+
+.intro {
+  margin-top: 30px;
+}
+
+.intro, .how-it-works {
+  margin-bottom: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.button_to, p {
+  margin-bottom: 10px;
+}
+
+.take-action p {
+  font-size: small;
+}
+
+
+

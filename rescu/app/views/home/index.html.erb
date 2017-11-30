@@ -1,2 +1,23 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="home-container">
+  <div class="intro">
+    <h1>Helpless No More</h1>
+    <h4> A community-driven animal rescue platform built <i>for</i> animal lovers <i>by</i> animal lovers
+  </div>
+
+  <div class="how-it-works">
+    <h2> How it Works </h2>
+
+    <h4> Concerned Citizens </h4> 
+    <p> Have you ever encountered an neglected animal and felt completely helpless, unsure of what to do? Fret no more. RescU empowers the community by taking away all of the uncertainty. No more online searches for animal rescues, no need for confrontation or uncomfortable situations; no more "DIY rescues" that get you stuck with a sheep in your backseat unsure of the next move... Just submit an online report and it will be investigated by a Rescue Organization. You'll be notified along the way as the case progresses.</p>
+
+    <h4> Rescue Organizations </h4>
+    <p>We know your job is hard enough as it is. RescU aims to centralize all your rescue cases to one location so you can do what you do best. Here, you can search nearby reports; update report statuses; and manage pre-existing cases. No more frantic social media checking, no more post-it notes or being bombarded with calls. Just community, clarity, and saving lives. </p>
+
+  </div>
+
+  <div class="take-action">
+    <%= button_to "Take Action Now", signup_path, :method => :get %>
+    <p> Have an account? <a href='/login'>Sign in</a></p> 
+  </div
+
+</div>

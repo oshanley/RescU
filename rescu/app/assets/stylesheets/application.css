@@ -17,3 +17,11 @@
 tr.clickable_row {
   cursor: pointer;
 }
+
+nav span {
+  float: right;
+  font-size: small;
+  color: dimgrey;
+}
+
+

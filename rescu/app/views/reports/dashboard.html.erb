@@ -49,7 +49,7 @@ Description: HTML for user dashboard depending on user type. Rescue Users see re
           <td><%= report.status %></td>
           <td><%= report.created_at.strftime("%e %b %y %I:%M %p") %>
           <td><%= report.updated_at.strftime("%e %b %y %I:%M %p")%>
-          <td><%= link_to 'Review', edit_report_path(report) %></td>
+          <td><%= link_to 'Review', edit_report_path(report), :method => :get %></td>
         </tr>
       <% end %>
     </tbody>

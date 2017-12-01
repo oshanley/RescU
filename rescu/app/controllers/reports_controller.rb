@@ -90,7 +90,7 @@ class ReportsController < ApplicationController
     if @report.save
       flash[:success] = "Report updated"
       if current_user.org_user
-        redirect_to map_path
+        redirect_to search_path
       else
         redirect_to reports_path
       end
